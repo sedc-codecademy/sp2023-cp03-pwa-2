@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Audit Management Checklist</title>
+  </head>
+  <body>
+    <div>
+      <h2>Audit Management Checklist</h2>
+      <div id="checklist"></div>
+      <button id="show-incomplete-items">Show Incomplete Items</button>
+    </div>
+
+    <div id="modal" style="display: none">
+      <h3>Incomplete Items</h3>
+      <ul id="incomplete-items"></ul>
+      <button id="close-modal">Close</button>
+    </div>
+
+    <script>
+      // Define a Checklist object
+      function Checklist(name, items) {
+        this.name = name;
+        this.items = items;
+      }
+
+      // Define a method to calculate the percentage of completed items
+      Checklist.prototype.percentComplete = function () {
+        const numItems = this.items.length;
+        if (numItems === 0) {
+          return 0;
+        } else if (numItems === 1) {
+          return this.items[0].completed ? 100 : 0;
+        }
+        const numCompletedItems = this.items.reduce((count, item) => {
+          return count + (item.completed ? 1 : 0);
+        }, 0);
+        return Math.round((numCompletedItems / numItems) * 100);
+      };
+
+      // Define a method to mark an item as completed
+      Checklist.prototype.completeItem = function (index) {
+        const item = this.items[index];
+        item.completed = true;
+        console.log(this.items);
+        console.log(this.items[0]);
+        // if (index < this.items.length - 1) {
+        //   // Check if item is not already at the end
+        //   this.items.splice(index, 1); // Remove item from current position
+        //   this.items.push(item); // Add item to end of array
+        // }
+      };
+
+      // Define a method to mark an item as incomplete
+      //   Checklist.prototype.incompleteItem = function (index) {
+      //     this.items[index].completed = false;
+      //   };
+
+      // Create an example checklist
+      const checklistItems = [
+        { name: "Item 1", completed: false },
+        { name: "Item 2", completed: false },
+        { name: "Item 3", completed: false },
+      ];
+      const checklist = new Checklist("My Checklist", checklistItems);
+
+      // Render the checklist on the page
+      const checklistElement = document.getElementById("checklist");
+      checklistElement.innerHTML = `
+        <div>
+          ${checklist.name} is ${checklist.percentComplete()}% complete
+        </div>
+      `;
+
+      // Handle clicking on the "Show Incomplete Items" button
+      const incompleteItemsButton = document.getElementById("show-incomplete-items");
+      const modalElement = document.getElementById("modal");
+      const incompleteItemsList = document.getElementById("incomplete-items");
+      const closeModalButton = document.getElementById("close-modal");
+      incompleteItemsButton.addEventListener("click", () => {
+        const incompleteItems = checklist.items.filter((item) => !item.completed);
+        incompleteItemsList.innerHTML = incompleteItems.map((item, index) => `<li data-index="${index}">${item.name}</li>`).join("");
+        modalElement.style.display = "block";
+      });
+
+      // Handle clicking on an incomplete item to mark it as completed
+      incompleteItemsList.addEventListener("click", (event) => {
+        const clickedListItem = event.target;
+        if (clickedListItem.tagName === "LI") {
+          const index = clickedListItem.dataset.index;
+          checklist.completeItem(index);
+          clickedListItem.classList.add("completed");
+          checklistElement.innerHTML = `
+            <div>
+              ${checklist.name} is ${checklist.percentComplete()}% complete
+            </div>
+          `;
+          if (checklist.percentComplete() >= 100) {
+            modalElement.style.display = "none";
+          }
+        }
+      });
+
+      // Handle clicking on a completed item to mark it as incomplete
+      //   checklistElement.addEventListener("click", (event) => {
+      //     const clickedListItem = event.target;
+      //     if (clickedListItem.tagName === "LI") {
+      //       const index = clickedListItem.dataset.index;
+      //       checklist.incompleteItem(index);
+      //       clickedListItem.classList.remove("completed");
+      //       checklistElement.innerHTML = `
+      //     <div>
+      //       ${checklist.name} is ${checklist.percentComplete()}% complete
+      //       <button id="show-incomplete-items">Show Incomplete Items</button>
+      //     </div>
+      //   `;
+      //       if (checklist.percentComplete() < 100) {
+      //         modalElement.style.display = "block";
+      //       }
+      //     }
+      //   });
+
+      // Handle clicking on the "Close" button to close the modal
+      closeModalButton.addEventListener("click", () => {
+        modalElement.style.display = "none";
+      });
+    </script>
+
+    <style>
+      .completed {
+        text-decoration: line-through;
+      }
+    </style>
+  </body>
+</html>
