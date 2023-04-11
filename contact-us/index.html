@@ -20,34 +20,47 @@
         <div class="col-6 h-100 form-container my-5">
           <h1 class="heading">Contact Us</h1>
           <div class="main-form">
-            <form>
+            <form novalidate class="validated-form">
               <div class="mb-3">
                 <label for="form-name" class="form-label">Name</label>
-                <input type="text" class="form-control" id="form-name" />
+                <input required type="text" class="form-control" id="form-name" />
+                <div class="valid-feedback">
+                  Looks Good!
+                </div>
               </div>
               <div class="mb-3">
                 <label for="form-email" class="form-label">Email</label>
-                <input
+                <input required
                   type="email"
                   class="form-control"
                   id="form-email"
                   aria-describedby="emailHelp"
                 />
+                <div class="valid-feedback">
+                  Looks Good!
+                </div>
                 <div id="emailHelp" class="form-text">
                   We'll never share your email with anyone else.
                 </div>
               </div>
               <div class="mb-3">
                 <label for="form-subject" class="form-label">Subject</label>
-                <input type="text" class="form-control" id="form-subject" />
+                <input required type="text" class="form-control" id="form-subject" />
+                <div class="valid-feedback">
+                  Looks Good!
+                </div>
               </div>
               <div class="mb-3">
                 <label for="form-message" class="form-label">Message</label>
                 <textarea
+                required
                   class="form-control"
                   id="form-message"
                   rows="3"
                 ></textarea>
+                <div class="valid-feedback">
+                  Looks Good!
+                </div>
               </div>
               <button id="submit-btn" type="submit" class="btn form-btn">
                 Send
@@ -55,14 +68,19 @@
             </form>
           </div>
         </div>
-        <div class="col-6 h-100 right-component">
-            <div class="text-center">
+        <div class="col-6 h-100 right-component d-flex align-items-center justify-content-center m-auto">
+            <div class="address text-center">
               <p>
                 Address: Some Street 44b<br>
-                Skopie Macedonia<br>
+                Skopje Macedonia<br>
                 Phone: +389 70 123 456
               </p>
+              <div class="follow-us ">
+                <p>Follow Us</p>
+
+              </div>
             </div>
+            
           </div>
     </div>
     <script
