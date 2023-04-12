@@ -1,0 +1,307 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mende+Kikakui&family=Roboto&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Noto Sans Mende Kikakui', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+}
+
+body{
+    background-color: #B7D7EA;
+}
+.main-Container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh; /* Added to simulate content and push footer to bottom */
+  }
+  
+  .logo {
+    text-align: center;
+    color: #087E8B;
+  }
+
+  #motto{
+    color: #0B3954;
+  }
+  
+  .footer {
+    background-color: #0B3954;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .location {
+    flex: 1;
+    margin-top: 1.7rem;
+    color: #B7D7EA;
+    font-weight: 400;
+    
+  }
+  
+  #logoName{
+    font-size: 65px;
+  }
+  #motto{
+    font-size: 30px;
+  }
+  .centerFooter {
+    color: #B7D7EA;
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .centerFooter > img{
+    width: 50px;
+    margin-right: 10px  ;
+  }
+  #appName{
+margin-top: 0px;  }
+ 
+  .logo {
+    text-align: center;
+    color: #087E8B;
+  }
+  .logo > img {
+    width: 120px;
+  }
+  #loginBtn,
+  #registerBtn {
+    display: inline-block;
+    width: 120px;
+    height: 33px;
+    text-align: center;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 6%;
+    background-color: #0B3954; /* Change this to your preferred color */
+    color: #BFD7EA;
+    font-size: 14px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 10px;
+    margin-top: 50px;
+  }
+  
+  #loginBtn:hover,
+  #registerBtn:hover {
+    background-color: white; 
+    color: #0B3954;/* Change this to your preferred hover color */
+  }
+ .socials {
+    flex: 1;
+    text-align: right;
+    color: #B7D7EA;
+    margin-top: 20px;
+    margin-right: 40px;
+  }
+  .socials > h3 {
+    margin-right: 25px;
+  }
+  
+  .container {
+    width: 1170px;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+ }
+  .navbar, .navbar > .container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+ 
+ }
+  @media (max-width: 768px) {
+    .navbar, .navbar > .container {
+      display: block;
+   }
+ }
+  .navbar {
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    background-color: #0B3954;
+    padding: 1rem 1.15rem;
+    border-bottom: 1px solid #eceef3;
+    color: #B7D7EA;
+
+ }
+  @media (min-width: 576px) {
+    .navbar .container {
+      max-width: 540px;
+   }
+ }
+  @media (min-width: 768px) {
+    .navbar .container {
+      max-width: 720px;
+   }
+ }
+  @media (min-width: 992px) {
+    .navbar .container {
+      max-width: 960px;
+   }
+ }
+  @media (min-width: 1200px) {
+    .navbar .container {
+      max-width: 1140px;
+   }
+ }
+  .navbar .navbar-header {
+    display: flex;
+    align-items: center;
+ }
+  @media (max-width: 768px) {
+    .navbar .navbar-header {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-direction: row-reverse;
+   }
+ }
+  .navbar .navbar-header .navbar-toggler {
+    cursor: pointer;
+    border: none;
+    display: none;
+    outline: none;
+ }
+  @media (max-width: 768px) {
+    .navbar .navbar-header .navbar-toggler {
+      display: block;
+   }
+ }
+  .navbar .navbar-header .navbar-toggler span {
+    height: 2px;
+    width: 22px;
+    background-color: #929aad;
+    display: block;
+ }
+  .navbar .navbar-header .navbar-toggler span:not(:last-child) {
+    margin-bottom: 0.2rem;
+ }
+  .navbar .navbar-header > a {
+    font-weight: 500;
+    color: #3c4250;
+ }
+  .navbar .navbar-menu {
+    display: flex;
+    align-items: center;
+    flex-basis: auto;
+    flex-grow: 1;
+ }
+  @media (max-width: 768px) {
+    .navbar .navbar-menu {
+      display: none;
+      text-align: center;
+   }
+ }
+  .navbar .navbar-menu.active {
+    display: flex !important;
+ }
+  .navbar .navbar-menu .navbar-nav {
+    margin-left: auto;
+    flex-direction: row;
+    display: flex;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+ }
+  @media (max-width: 768px) {
+    .navbar .navbar-menu .navbar-nav {
+      width: 100%;
+      display: block;
+      border-top: 1px solid #eee;
+      margin-top: 1rem;
+   }
+ }
+  .navbar .navbar-menu .navbar-nav > li > a {
+    color: #B7D7EA;
+    text-decoration: none;
+    display: inline-block;
+    padding: 0.5rem 1rem;
+ }
+  .navbar .navbar-menu .navbar-nav > li > a:hover {
+    color: #66f;
+ }
+  @media (max-width: 768px) {
+    .navbar .navbar-menu .navbar-nav > li > a {
+      border-bottom: 1px solid #eceef3;
+   }
+ }
+  .navbar .navbar-menu .navbar-nav > li.active a {
+    color: #B7D7EA;
+ }
+  .navbar .navbar-menu .navbar-nav .navbar-dropdown .dropdown {
+    list-style: none;
+    position: absolute;
+    top: 150%;
+    left: 0;
+    background-color: #fff;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    min-width: 160px;
+    width: auto;
+    white-space: nowrap;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    z-index: 99999;
+    border-radius: 0.75rem;
+    display: none;
+ }
+  @media (max-width: 768px) {
+    .navbar .navbar-menu .navbar-nav .navbar-dropdown .dropdown {
+      position: relative;
+      box-shadow: none;
+   }
+ }
+  .navbar .navbar-menu .navbar-nav .navbar-dropdown .dropdown li a {
+    color: #3c4250;
+    padding: 0.25rem 1rem;
+    display: block;
+ }
+  .navbar .navbar-menu .navbar-nav .navbar-dropdown .dropdown.show {
+    display: block !important;
+ }
+  .navbar .navbar-menu .navbar-nav .dropdown > .separator {
+    height: 1px;
+    width: 100%;
+    margin-top: 9px;
+    margin-bottom: 9px;
+    background-color: #eceef3;
+ }
+  .navbar .navbar-dropdown {
+    position: relative;
+ }
+  .navbar .navbar-header > a span {
+    color: #66f;
+ }
+  .navbar .navbar-header h4 {
+    font-weight: 500;
+    font-size: 1.25rem;
+ }
+  @media (max-width: 768px) {
+    .navbar .navbar-header h4 {
+      font-size: 1.05rem;
+   }
+ }
+ 
+ .navbar-header > img {
+  width: 40px;
+ }
+
+#ourLogo{
+  margin-left: 10px;
+  font-weight: bold;
+ }
+
+ 
+.navbar-header a > img{
+  width: 10px;
+}

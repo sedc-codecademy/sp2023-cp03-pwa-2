@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Slide Navbar</title>
+	<link rel="stylesheet" type="text/css" href="slide navbar style.css">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+	<nav class="navbar">
+		<div class="container">
+		  <div class="navbar-header">
+			<button class="navbar-toggler" data-toggle="open-navbar1">
+			  <span></span>
+			  <span></span>
+			  <span></span>
+			</button>
+			  <img src="/img/logo-footer.svg" alt="">
+		  </div>
+	  
+		  <div class="navbar-menu" id="open-navbar1">
+			<ul class="navbar-nav">
+			  <li class="active"><a href="#">Home</a></li>
+			  <li class="navbar-dropdown">
+				<a href="#" class="dropdown-toggler" data-dropdown="my-dropdown-id">
+				  Categories <i class="fa fa-angle-down"></i>
+				</a>
+				<ul class="dropdown" id="my-dropdown-id">
+				  <li><a href="#">Actions</a></li>
+				  <li><a href="#">Something else here</a></li>
+				  <li class="separator"></li>
+				  <li><a href="#">Seprated link</a></li>
+				  <li class="separator"></li>
+				  <li><a href="#">One more seprated link.</a></li>
+				</ul>
+			  </li>
+			  <li class="navbar-dropdown">
+				<a href="#" class="dropdown-toggler" data-dropdown="blog">
+				  Blog <i class="fa fa-angle-down"></i>
+				</a>
+				<ul class="dropdown" id="blog">
+				  <li><a href="#">Some category</a></li>
+				  <li><a href="#">Some another category</a></li>
+				  <li class="separator"></li>
+				  <li><a href="#">Seprated link</a></li>
+				  <li class="separator"></li>
+				  <li><a href="#">One more seprated link.</a></li>
+				</ul>
+			  </li>
+			  <li><a href="#">About</a></li>
+			  <li><a href="#">Contact</a></li>
+			  <li><a href="#">Signin</a></li>
+			</ul>
+		  </div>
+		</div>
+	  </nav>
+	<div class="main">  	
+		<input type="checkbox" id="chk" aria-hidden="true">
+			<div class="signup">
+				<form>
+					<label for="chk" aria-hidden="true">Sign up</label>
+					<input type="text" name="txt" placeholder="User name" required="">
+					<input type="email" name="email" placeholder="Email" required="">
+					<input type="password" name="pswd" placeholder="Password" required="">
+					<button>Sign up</button>
+				</form>
+			</div>
+
+			<div class="login">
+				<form>
+					<label for="chk" aria-hidden="true">Login</label>
+					<input type="email" name="email" placeholder="Email" required="">
+					<input type="password" name="pswd" placeholder="Password" required="">
+					<button>Login</button>
+				</form>
+			</div>
+	</div>
+  <footer class="bg-dark text-light py-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <p>&copy; 2023 Example Company</p>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <ul class="list-unstyled mb-0">
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Use</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+</body>
+</html>
