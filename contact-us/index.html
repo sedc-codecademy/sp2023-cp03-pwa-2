@@ -13,6 +13,12 @@
       integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
       crossorigin="anonymous"
     />
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+      (function(){
+         emailjs.init("agElvPgDe2SiefpXd");
+      })();
+   </script>
   </head>
   <body>
     <div class="container-fluid h-100 main-container">
@@ -113,7 +119,70 @@
       integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
       crossorigin="anonymous"
     ></script>
-
     <script src="script.js"></script>
+
+    <script>
+      document.querySelector(".validated-form").addEventListener("submit", function(event) {
+        event.preventDefault();
+    
+        // Show the loading spinner
+        document.querySelector("#submit-btn").innerHTML = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Sending...`;
+    
+        // Get the user's input
+        const name = document.querySelector("#form-name").value.trim();
+        const email = document.querySelector("#form-email").value.trim();
+        const subject = document.querySelector("#form-subject").value.trim();
+        const message = document.querySelector("#form-message").value.trim();
+
+
+    // Check if any of the required fields are empty
+    if (!name || !email || !subject || !message) {
+
+        document.querySelector("#submit-btn").innerHTML = "Send";
+        alert("Please fill out all required fields.");
+
+        return false; 
+    }
+    
+        // Send the email
+        emailjs.send("service_nn7wxoa", "template_jq3dep7", {
+          name: name,
+          email: email,
+          subject: subject,
+          message: message
+        })
+        .then(function(response) {
+          // Hide the loading spinner
+          document.querySelector("#submit-btn").innerHTML = "Send";
+
+          // NOTE:
+          // Should be tested further, it auto-adds the is-invalid validation after sending the form even after hiding it.
+
+          // const invalidFields = document.querySelectorAll(".is-invalid");
+          //   invalidFields.forEach(field => {
+          //     field.classList.remove("is-invalid");
+          //   });
+
+          //     const invalidFeedbackDivs = document.querySelectorAll(".invalid-feedback");
+          //     invalidFeedbackDivs.forEach(div => {
+          //       div.style.display = "none";
+          //     });
+    
+          // Show a success message
+          alert("Your message has been sent!");
+    
+          // Reset the form
+          // document.querySelector(".validated-form").reset();
+
+        }, function(error) {
+          // Hide the loading spinner
+          document.querySelector("#submit-btn").innerHTML = "Send";
+    
+          // Show an error message
+          alert("Oops! Something went wrong. Please try again later.");
+        });
+      });
+    </script>
+    
   </body>
 </html>
