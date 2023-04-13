@@ -17,7 +17,7 @@
 
 .form-btn {
   margin-top: 1.4rem;
-  width: 500px;
+  /* width: 500px; */
 }
 
 .form-label {
@@ -30,6 +30,7 @@
   background-color: #087e8b;
   color: #bfd7ea;
   font-size: 1.2rem;
+  width: 100%;
 }
 
 .address {
