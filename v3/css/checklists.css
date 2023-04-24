@@ -1,0 +1,425 @@
+.checklist-form {
+  padding-bottom: 100px;
+  font-family: "Graphik", "Arial", sans-serif;
+  padding-top: 50px;
+  border-bottom: 1px solid #d8d3d3;
+}
+
+@media (max-width: 767px) {
+  .checklist-form {
+    padding-bottom: 40px;
+    padding-top: 40px;
+  }
+}
+
+.checklist-form form {
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.checklist-form__ac-head {
+  width: 100%;
+}
+
+.checklist-form__group {
+  width: 100%;
+  overflow: hidden;
+}
+
+.checklist-form__group.is-active svg {
+  -webkit-transform: scale(-1);
+  transform: scale(-1);
+}
+
+.checklist-form__disclaimer {
+  margin: 0 0 30px;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 1.3;
+  text-align: center;
+}
+
+@media (max-width: 560px) {
+  .checklist-form__disclaimer {
+    margin-bottom: 20px;
+    font-size: 18px;
+  }
+}
+
+.checklist-form__ac-trigger {
+  border: 0;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 56px;
+  margin-bottom: 24px;
+  padding: 0 24px;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  border-radius: 5px;
+  background-color: #f45843;
+  color: #fff;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.checklist-form__ac-trigger svg {
+  fill: #fff;
+  -webkit-transition: -webkit-transform 0.2s cubic-bezier(0.79, 0.14, 0.15, 0.86);
+  transition: transform 0.2s cubic-bezier(0.79, 0.14, 0.15, 0.86);
+  transition: transform 0.2s cubic-bezier(0.79, 0.14, 0.15, 0.86), -webkit-transform 0.2s cubic-bezier(0.79, 0.14, 0.15, 0.86);
+}
+
+@media (max-width: 767px) {
+  .checklist-form__ac-trigger {
+    padding: 0 16px;
+  }
+}
+
+.checklist-form__panel {
+  position: relative;
+  transition-duration: 300ms;
+  height: 0px;
+}
+
+.checklist-form__panel:after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 24px;
+}
+
+.checklist-form__panel fieldset {
+  background-color: #fff;
+  border-radius: 10px;
+  border: 1px solid #d8d3d3;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding: 24px;
+  margin: 0 0 24px;
+}
+
+@media (max-width: 767px) {
+  .checklist-form__panel fieldset {
+    padding: 20px;
+  }
+}
+
+.checklist-form__panel fieldset.error {
+  border-color: #f45843;
+  border-width: 2px;
+  padding: 23px;
+}
+
+.checklist-form__question {
+  margin: 0;
+  width: 100%;
+  font-size: 20px;
+  line-height: 1.3;
+}
+
+@media (max-width: 767px) {
+  .checklist-form__question {
+    font-size: 18px;
+    line-height: 1.4;
+  }
+}
+
+.checklist-form__answers {
+  padding: 0;
+  list-style: none;
+  margin: 24px 0 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 767px) {
+  .checklist-form__answers {
+    margin-top: 8px;
+  }
+}
+
+.checklist-form__answers.blocked {
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.checklist-form__answer-item {
+  margin-right: 16px;
+}
+
+.checklist-form__answer-item:last-of-type {
+  margin-right: 0;
+}
+
+@media (max-width: 767px) {
+  .checklist-form__answer-item {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+}
+
+.checklist-form__radio-label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 11px 16px 9px;
+  color: #aaa5a5;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.2;
+  border: 2px solid #aaa5a5;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.checklist-form__radio--red:checked + .checklist-form__radio-label {
+  background-color: #f45843;
+  border-color: #f45843;
+  color: #fff;
+}
+
+.checklist-form__radio--orange:checked + .checklist-form__radio-label {
+  background-color: #f4743a;
+  border-color: #f4743a;
+  color: #fff;
+}
+
+.checklist-form__radio--green:checked + .checklist-form__radio-label {
+  background-color: #57bfa1;
+  border-color: #57bfa1;
+  color: #fff;
+}
+
+.checklist-form__comment {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 24px;
+}
+
+@media (max-width: 767px) {
+  .checklist-form__comment {
+    margin-top: 0;
+  }
+}
+
+.checklist-form__comment textarea {
+  resize: none;
+  overflow: hidden;
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #aaa5a5;
+  border-radius: 6px;
+  line-height: inherit;
+  background: 0 0;
+  background-color: #fff;
+  height: auto;
+  min-height: 80px;
+  font-size: 16px;
+}
+
+.checklist-form__comment textarea::-webkit-input-placeholder {
+  color: #aaa5a5;
+}
+
+.checklist-form__comment textarea::-moz-placeholder {
+  color: #aaa5a5;
+}
+
+.checklist-form__comment textarea:-ms-input-placeholder,
+.checklist-form__comment textarea::-ms-input-placeholder {
+  color: #aaa5a5;
+}
+
+.checklist-form__comment textarea::placeholder {
+  color: #aaa5a5;
+}
+
+.checklist-form__comment textarea:focus {
+  padding: 14px;
+  border: 2px solid #00999b;
+}
+
+@media (max-width: 767px) {
+  .checklist-form__comment textarea {
+    min-height: 114px;
+    padding: 9px;
+  }
+
+  .checklist-form__comment textarea:focus {
+    padding: 8px;
+  }
+}
+
+.checklist-form__submit {
+  margin: 20px auto 0;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+@media (max-width: 767px) {
+  .checklist-form__submit {
+    width: 100%;
+    margin-top: 10px;
+  }
+}
+
+.checklist-form__panel fieldset:last-of-type,
+.main-nav__submenu-item:last-of-type {
+  margin-bottom: 0;
+}
+
+.od-button {
+  font-family: "Graphik", "Arial", sans-serif;
+  background-color: transparent;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.5;
+  height: 56px;
+  padding: 16px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #f45843;
+  cursor: pointer;
+  border: 2px solid #f45843;
+  border-radius: 5px;
+  -webkit-transition: background-color 200ms, opacity 200ms, color 200ms, border-color 200ms;
+  transition: background-color 200ms, opacity 200ms, color 200ms, border-color 200ms;
+}
+
+/* Disabled button */
+.disabled-button {
+  opacity: 0.5;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+@media (hover: hover) {
+  .od-button:hover {
+    background-color: #f45843;
+    border-color: #f45843;
+    color: #fff;
+  }
+}
+
+.od-button--colored {
+  background-color: #f45843;
+  border-color: #f45843;
+  color: #fff;
+}
+
+@media (hover: hover) {
+  .od-button--colored:hover {
+    color: #fff;
+    background-color: #f88f15;
+    border-color: #f88f15;
+  }
+}
+
+.od-button--transparent {
+  border-color: #fff;
+  background-color: transparent;
+  color: #fff;
+}
+
+@media (hover: hover) {
+  .od-button--transparent:hover {
+    background-color: #f45843;
+    border-color: #f45843;
+  }
+
+  .od-button--transparent:hover:active {
+    background-color: #f4743a;
+    border-color: #f4743a;
+  }
+}
+
+.od-button--beige {
+  background-color: #efeee5;
+}
+
+@media (hover: hover) {
+  .od-button--beige:hover {
+    background-color: #f45843;
+    border-color: #f45843;
+  }
+
+  .od-button--beige:hover:active {
+    background-color: #f4743a;
+    border-color: #f4743a;
+  }
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  clip: rect(0 0 0 0);
+}
+
+.isActive {
+  height: auto;
+}
+
+/* Modal CSS */
+
+.modal-test {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-test-content {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 30%;
+}
+#percentage {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.close {
+  font-size: 15px;
+}
