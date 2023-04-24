@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Audit Management Checklist</title>
+    <link rel="stylesheet" href="feature1.css" />
+    <script src="feature1.js" defer></script>
+  </head>
+  <body>
+    <h2>Audit Management Checklist</h2>
+    <div>
+      <input type="text" id="checklist-name" />
+      <button id="create-checklist">Create check list</button>
+    </div>
+    <div>
+      <div id="checklist"></div>
+      <button id="show-incomplete-items">Show Incomplete Items</button>
+    </div>
+
+    <div id="modal" style="display: none">
+      <h3>Incomplete Items</h3>
+      <ul id="incomplete-items"></ul>
+      <button id="close-modal">Close</button>
+    </div>
+    <div id="created-cheklist-modal" style="display: none">
+      <h3>Current checklist</h3>
+      <ul id="checklist-items"></ul>
+      <button id="close-cheklist-modal">Close</button>
+    </div>
+  </body>
+</html>
