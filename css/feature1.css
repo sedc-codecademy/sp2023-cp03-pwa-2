@@ -1,0 +1,124 @@
+.completed {
+  text-decoration: line-through;
+}
+ul {
+  list-style: none;
+}
+/* body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+} */
+
+/* MODALS */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 70%;
+}
+
+.close-modal {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+.close-modal:hover {
+  color: red;
+}
+
+/* BUTTONS */
+.feat-button {
+  font-family: "Graphik", "Arial", sans-serif;
+  background-color: transparent;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.5;
+  height: 56px;
+  padding: 16px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #f45843;
+  cursor: pointer;
+  border: 2px solid #f45843;
+  border-radius: 5px;
+  -webkit-transition: background-color 200ms, opacity 200ms, color 200ms, border-color 200ms;
+  transition: background-color 200ms, opacity 200ms, color 200ms, border-color 200ms;
+}
+
+@media (hover: hover) {
+  .feat-button:hover {
+    background-color: #f45843;
+    border-color: #f45843;
+    color: #fff;
+  }
+}
+
+.feat-button--colored {
+  background-color: #f45843;
+  border-color: #f45843;
+  color: #fff;
+}
+
+@media (hover: hover) {
+  .feat-button--colored:hover {
+    color: #fff;
+    background-color: #f88f15;
+    border-color: #f88f15;
+  }
+}
+
+.feat-button--transparent {
+  border-color: #fff;
+  background-color: transparent;
+  color: #fff;
+}
+
+@media (hover: hover) {
+  .feat-button--transparent:hover {
+    background-color: #f45843;
+    border-color: #f45843;
+  }
+
+  .feat-button--transparent:hover:active {
+    background-color: #f4743a;
+    border-color: #f4743a;
+  }
+}
+
+.feat-button--beige {
+  background-color: #efeee5;
+}
+
+@media (hover: hover) {
+  .feat-button--beige:hover {
+    background-color: #f45843;
+    border-color: #f45843;
+  }
+
+  .feat-button--beige:hover:active {
+    background-color: #f4743a;
+    border-color: #f4743a;
+  }
+}
