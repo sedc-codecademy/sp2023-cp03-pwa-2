@@ -1,0 +1,51 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap");
+
+* {
+  font-family: "Montserrat", sans-serif;
+}
+
+.heading {
+  margin-left: 2rem;
+  color: #0b3954;
+}
+
+.main-form {
+  margin-top: 5rem;
+  margin-left: 5rem;
+  max-width: 500px;
+}
+
+.form-btn {
+  margin-top: 1.4rem;
+  /* width: 500px; */
+}
+
+.form-label {
+  font-size: 1.3rem;
+  font-weight: 300;
+  color: #0b3954;
+}
+
+#submit-btn {
+  background-color: #087e8b;
+  color: #bfd7ea;
+  font-size: 1.2rem;
+  width: 100%;
+}
+
+.address {
+  font-size: 1.2rem;
+  color: #0b3954;
+  margin-top: 7rem;
+}
+
+.follow-us {
+  margin-top: 200px;
+  color: #0b3954;
+}
+
+.social-media {
+  justify-content: center;
+  display: flex;
+  gap: 0.5rem;
+}
