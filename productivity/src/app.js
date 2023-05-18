@@ -3,7 +3,8 @@ import { feature1Js } from "./feature1.js";
 import { feature4Content } from "./renderFeature4.js";
 import {toggleContainerVisibility,showNextContainer,showPreviousContainer} from './feature4.js'
 import { feature5Content } from "./renderFeature5.js";
-import { renderCalendar } from "../../calendar/calendar.js";
+import { renderCalendar } from "../src/renderCalendar.js";
+
 
 // DOM elements
 const navbar = document.querySelector(".navbar");
@@ -45,6 +46,7 @@ function renderFeature4() {
 }
 function renderFeature5() {
   mainContent.innerHTML = feature5Content;
+  renderCalendar()
 }
 
 // Add event listeners to sidebar links
@@ -72,10 +74,10 @@ sidebar.addEventListener("click", function (event) {
     nextBtn.addEventListener('click', function () {
       showNextContainer(containers, currentContainerIndex);
     });
+
     toggleContainerVisibility(containers, currentContainerIndex);
   } else if (event.target.id === "feature5") {
     renderFeature5();
-    renderCalendar()
   }
 });
 

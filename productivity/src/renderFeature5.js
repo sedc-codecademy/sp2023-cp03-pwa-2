@@ -1,4 +1,5 @@
 export const feature5Content = `
+<div id="renderCalendar"> 
 <h2 id="dateText">Click on any date to see your daily tasks</h2>
 <div class="calendar">
   <div class="header">
@@ -9,4 +10,5 @@ export const feature5Content = `
   <div class="days"></div>
 </div>
 
+</div>
 `
