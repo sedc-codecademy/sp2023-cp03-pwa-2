@@ -1,5 +1,6 @@
 @import "feature1.css";
 @import "checklists.css";
+@import "style-productifitty.css";
 * {
   box-sizing: border-box;
   font-family: Arial, sans-serif;
