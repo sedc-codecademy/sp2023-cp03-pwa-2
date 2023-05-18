@@ -2,6 +2,8 @@ import { feature1Content } from "./renderFeature1.js";
 import { feature1Js } from "./feature1.js";
 import { feature4Content } from "./renderFeature4.js";
 import {toggleContainerVisibility,showNextContainer,showPreviousContainer} from './feature4.js'
+import { feature5Content } from "./renderFeature5.js";
+import { renderCalendar } from "../../calendar/calendar.js";
 
 // DOM elements
 const navbar = document.querySelector(".navbar");
@@ -24,10 +26,6 @@ const feature3Content = `
   <p>This is the content for Reminders.</p>
 `;
 
-const feature5Content = `
-  <h1>Calendar</h1>
-  <p>This is the content for the Calendar.</p>
-`;
 
 // Functions to render content
 function renderFeature1() {
@@ -74,10 +72,10 @@ sidebar.addEventListener("click", function (event) {
     nextBtn.addEventListener('click', function () {
       showNextContainer(containers, currentContainerIndex);
     });
-
     toggleContainerVisibility(containers, currentContainerIndex);
   } else if (event.target.id === "feature5") {
     renderFeature5();
+    renderCalendar()
   }
 });
 
