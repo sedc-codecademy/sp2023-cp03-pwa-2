@@ -1,10 +1,14 @@
 import { feature1Content } from "./renderFeature1.js";
 import { feature1Js } from "./feature1.js";
 import { feature4Content } from "./renderFeature4.js";
-import {toggleContainerVisibility,showNextContainer,showPreviousContainer} from './feature4.js'
+import {
+  toggleContainerVisibility,
+  showNextContainer,
+  showPreviousContainer,
+} from "./feature4.js";
 import { feature5Content } from "./renderFeature5.js";
 import { renderCalendar } from "../src/renderCalendar.js";
-
+import { feature6Content } from "./renderFeature6.js";
 
 // DOM elements
 const navbar = document.querySelector(".navbar");
@@ -27,7 +31,6 @@ const feature3Content = `
   <p>This is the content for Reminders.</p>
 `;
 
-
 // Functions to render content
 function renderFeature1() {
   mainContent.innerHTML = feature1Content;
@@ -46,7 +49,10 @@ function renderFeature4() {
 }
 function renderFeature5() {
   mainContent.innerHTML = feature5Content;
-  renderCalendar()
+  renderCalendar();
+}
+function renderFeature6() {
+  mainContent.innerHTML = feature6Content;
 }
 
 // Add event listeners to sidebar links
@@ -60,30 +66,33 @@ sidebar.addEventListener("click", function (event) {
     renderFeature3();
   } else if (event.target.id === "feature4") {
     renderFeature4();
- 
-    const containers = document.querySelectorAll('.container');
+
+    const containers = document.querySelectorAll(".container");
     let currentContainerIndex = 0;
 
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
 
-    prevBtn.addEventListener('click', function () {
+    prevBtn.addEventListener("click", function () {
       showPreviousContainer(containers, currentContainerIndex);
     });
 
-    nextBtn.addEventListener('click', function () {
+    nextBtn.addEventListener("click", function () {
       showNextContainer(containers, currentContainerIndex);
     });
 
     toggleContainerVisibility(containers, currentContainerIndex);
   } else if (event.target.id === "feature5") {
     renderFeature5();
+  } else if (event.target.id === "feature6") {
+    renderFeature6();
   }
 });
 
 // Add event listener to dropdown button
 dropdownBtn.addEventListener("click", function () {
-  dropdownMenu.style.display = dropdownMenu.style.display === "block" ? "none" : "block";
+  dropdownMenu.style.display =
+    dropdownMenu.style.display === "block" ? "none" : "block";
 });
 
 // Add event listener to logout button

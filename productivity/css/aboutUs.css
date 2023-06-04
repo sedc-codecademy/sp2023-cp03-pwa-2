@@ -1,0 +1,273 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+/* font: montserrat, family: lato */
+
+:root {
+  --color-primary-400: #0b3954;
+  --color-secondary-400: #087e8b;
+  --color-neutral-400: #bfd7ea;
+  --color-green-400: #008000;
+  --color-red-400: #c81d25;
+}
+
+/* More-intuitive box-sizing model */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin, padding */
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Lato", sans-serif;
+  font-size: 62.5%;
+  color: var(--color-primary-400);
+}
+
+/* Percentage based height for responsiveness */
+html,
+body {
+  height: 100%;
+}
+
+/* Typographic tweaks */
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Improve media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* Remove build-in form topography styles  */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Avoid text overflow */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+a,
+ul {
+  text-decoration: none;
+  list-style-type: none;
+}
+
+.about__heading {
+  width: 90%;
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  margin: 20px auto;
+}
+
+.about__heading h2 {
+  font-size: 5rem;
+}
+
+.team__heading {
+  font-size: 5rem;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.about__heading p {
+  font-size: 2rem;
+  margin-bottom: 3rem;
+}
+
+.team__card h3 {
+  font-size: 2.5rem;
+  margin: 1.3rem;
+}
+
+.team__card--about {
+  font-size: 1.5rem;
+  font-style: italic;
+  text-align: center;
+  margin: 2rem;
+}
+
+.team__card--job-title {
+  color: var(--color-secondary-400);
+  font-size: 2rem;
+}
+
+.about__container {
+  width: 90%;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+}
+
+.about__section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.about__image {
+  flex: 1;
+  margin-right: 4rem;
+  overflow: hidden;
+}
+
+.about__image img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  transition: 0.5s ease;
+}
+
+.about__image:hover img {
+  transform: scale(1.1);
+}
+
+.about__content {
+  flex: 1;
+}
+
+.about__content h3 {
+  font-size: 2.5rem;
+  margin-bottom: 1.3rem;
+}
+
+.about__content p {
+  font-size: 1.8rem;
+}
+
+.about__team {
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1.8rem;
+  background-color: var(--color-secondary-400);
+  color: var(--color-neutral-400);
+  margin-top: 2rem;
+  padding: 0.3rem 5rem;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+}
+
+.about__team:hover {
+  cursor: pointer;
+  box-shadow: 0 0 1.3rem rgba(0, 0, 0, 0.3);
+  color: white;
+}
+
+.about__team:active {
+  background-color: #0fa2b2;
+  color: white;
+}
+
+.team__card--wrapper {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  flex-direction: column;
+}
+
+.team__card {
+  width: 32rem;
+  background-color: var(--color-neutral-400);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem 0;
+  box-shadow: 0.5rem 0.5rem 3rem rgba(0, 0, 0, 0.2);
+}
+
+.team__card .team__card--img {
+  width: 100%;
+  height: 20rem;
+  object-fit: cover;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 78%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 78%, 0 100%);
+}
+
+.team__card--img-profile {
+  width: 20rem;
+  height: 20rem;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-top: -12rem;
+  z-index: 5;
+  border: 1rem solid var(--color-neutral-400);
+}
+
+.team__card--social-media {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  padding-bottom: 2rem;
+}
+
+.team__card--social-media i {
+  font-size: 2.5rem;
+}
+
+@media (max-width: 768px) {
+  .about__section {
+    flex-direction: column;
+  }
+
+  .about__image {
+    flex: 0 100%;
+    max-width: 100%;
+    margin: 0 2rem;
+  }
+
+  .about__content {
+    flex: 0 100%;
+    max-width: 100%;
+    margin: 2rem;
+  }
+  .about__team {
+    flex: 0 100%;
+    /* max-width: 100%; */
+    width: 100%;
+  }
+  .about__heading p {
+    margin-bottom: 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .team__card--wrapper {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .team__card {
+    margin: 2.5rem;
+
+    transition: 0.5s ease-in-out;
+  }
+
+  .team__card:hover {
+    transform: scale(1.1);
+  }
+}
