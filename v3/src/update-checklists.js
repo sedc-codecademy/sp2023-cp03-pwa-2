@@ -1,6 +1,6 @@
 import { Checklist } from "./classChecklist.js";
 
-export function checklistLogic() {
+export function updateChecklistLogic(inputId, inputData) {
   // Handle buttons-dropdowns for expanding articles on the checklist
   const buttons = document.querySelectorAll(".checklist-form__ac-trigger");
   for (let button of buttons) {
@@ -95,31 +95,19 @@ export function checklistLogic() {
 
     // Push date, time and the final result as an object ONLY to the completed Checklist
     // checklistItemsArray.push({ startDate }, { endDate }, { startTime }, { endTime });
-    const wholeChecklist = await Checklist.createChecklist(
+    const wholeChecklist = await Checklist.updateChecklist(inputId, [
       checklistNameInput.options[checklistNameInput.selectedIndex].text,
       startDate,
       endDate,
       startTime,
       endTime,
       [...checklistItemsArray],
-      result
-    );
-    // console.dir(checklistNameInput.selectedOptions);
+      result,
+    ]);
+    console.dir(checklistNameInput.selectedOptions);
     if (answered === questions.length) {
       wholeChecklist.completed = true;
-      Checklist.checklistsArray.push(wholeChecklist);
-    } else Checklist.incompleteChecklistsArray.push(wholeChecklist);
-
-    console.log(Checklist.checklistsArray);
-    console.log(Checklist.incompleteChecklistsArray);
-
-    // Putting the data in local storage
-    let cheklistsLS = localStorage.getItem("cheklistsLS") == null ? [] : JSON.parse(localStorage.getItem("cheklistsLS"));
-    cheklistsLS.push(wholeChecklist);
-    localStorage.setItem("cheklistsLS", JSON.stringify(cheklistsLS));
-    console.log(JSON.parse(localStorage.getItem("cheklistsLS")));
-    //////////////
-
+    }
     console.table(wholeChecklist);
     // console.table("final array", answeredSingleQuestionArray);
     console.table(checklistItemsArray);

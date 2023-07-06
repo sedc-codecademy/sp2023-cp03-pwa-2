@@ -1,5 +1,6 @@
 export class Checklist {
   static checklistsArray = [];
+  static incompleteChecklistsArray = [];
   constructor(title, startDate, endDate, startTime, endTime, items = [], result) {
     this.id = Math.floor(Math.random() * 100);
     this.title = title;
@@ -10,10 +11,11 @@ export class Checklist {
     this.items = [...items];
     this.result = result;
     this.completed = false;
-    Checklist.checklistsArray.push(this);
+    // Checklist.checklistsArray.push(this);
   }
   static async createChecklist(title, startDate, endDate, startTime, endTime, items, result) {
     const checklist = new Checklist(title, startDate, endDate, startTime, endTime, items, result);
+    console.log(checklist);
     return checklist;
   }
   static async getAllChecklists() {
@@ -30,11 +32,14 @@ export class Checklist {
   }
   static async updateChecklist(id, data) {
     const foundCl = this.checklistsArray.find((item) => item.id === id);
-    const updatedChecklist = { ...foundCl, ...data };
-    const updatedChecklistArray = this.checklistsArray.map((item) => (item.id === updatedChecklist.id ? updatedChecklist : item));
-    // const updatedChecklist = Object.assign(foundCl, data);
-    this.checklistsArray = updatedChecklistArray;
-    return updatedChecklistArray;
+    // const updatedChecklist = { ...foundCl, ...data };
+    console.log(id);
+    console.log(data);
+    // const updatedChecklistArray = this.checklistsArray.map((item) => (item.id === updatedChecklist.id ? updatedChecklist : item));
+    const updatedChecklist = Object.assign(foundCl, data);
+    // this.checklistsArray = updatedChecklistArray;
+    return updatedChecklist;
+    // return updatedChecklistArray;
   }
   static async changeChecklistStatus(id, booStatus) {
     const foundCl = this.checklistsArray.find((item) => item.id === id);
@@ -45,6 +50,7 @@ export class Checklist {
     return updatedChecklistArray;
   }
   static async showIncompleteChecklists() {
+    // const foundCl = this.checklistsArray.filter((item) => item.completed === false);
     const foundCl = this.checklistsArray.filter((item) => item.completed === false);
     return foundCl;
   }

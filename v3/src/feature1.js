@@ -2,6 +2,7 @@ import { checklist1Content } from "./renderFeat1Check1.js";
 import { checklistLogic } from "./checklists.js";
 import { bartenderOpenChecklist } from "./renderfeat1BartenderOpen.js";
 import { Checklist } from "./classChecklist.js";
+import { updateChecklistLogic } from "./update-checklists.js";
 
 export function feature1Js() {
   const newChecklist = new Checklist("First checklist", "22.04.2023", "22.04.2023", "12:15", "12:17", [
@@ -20,11 +21,11 @@ export function feature1Js() {
     { speak: false },
   ]);
   // console.log(newChecklist);
-  const newOne = Checklist.createChecklist("Fourth checklist", "22.04.2023", "22.04.2023", "12:15", "12:17", [
-    { see: "what" },
-    { hear: "no" },
-    { speak: false },
-  ]);
+  // const newOne = Checklist.createChecklist("Fourth checklist", "22.04.2023", "22.04.2023", "12:15", "12:17", [
+  //   { see: "what" },
+  //   { hear: "no" },
+  //   { speak: false },
+  // ]);
   // console.log(newOne);
 
   const checklistElement = document.getElementById("checklist");
@@ -51,11 +52,7 @@ export function feature1Js() {
 
   // Handle clicking on the "Create checklist" button
   createChecklistButton.addEventListener("click", async () => {
-    const newChecklist = await Checklist.createChecklist(checklistNameInput.options[checklistNameInput.selectedIndex].text, [
-      { see: "what" },
-      { hear: "no" },
-      { speak: false },
-    ]);
+    const newChecklist = await Checklist.createChecklist(checklistNameInput.options[checklistNameInput.selectedIndex].text);
     checklistItemsList.innerHTML = `<li id="${newChecklist.id}">${newChecklist.title}</li>`;
     checklistModalElement.style.display = "block";
     modalElement.style.display = "none";
@@ -86,19 +83,49 @@ export function feature1Js() {
   });
 
   // Handle clicking on an incomplete item to mark it as completed
+
+  async function renderIncompleteChecklist(checklistContentInput) {
+    // async function renderIncompleteChecklist(id, checklistContentInput) {
+    const checklistContentComparer = {
+      "Test checklist": checklist1Content,
+      "Opening Shift - Bartender": bartenderOpenChecklist,
+    };
+
+    const selectedValue = checklistContentInput.innerHTML;
+    console.log(selectedValue);
+    if (checklistContentComparer.hasOwnProperty(selectedValue)) {
+      container.innerHTML = checklistContentComparer[selectedValue];
+    } else false;
+    // updateChecklistLogic(id, checklistContentInput);
+    checklistLogic();
+    renderChecklistsModal.style.display = "block";
+    checklistModalElement.style.display = "none";
+    modalElement.style.display = "none";
+    allChecklistsModal.style.display = "none";
+  }
+
   incompleteItemsList.addEventListener("click", async (event) => {
     const clickedListItem = event.target;
     // console.log(clickedListItem);
     if (clickedListItem.tagName === "LI") {
+      //   const index = parseInt(clickedListItem.id);
+      //   await Checklist.completeItem(index);
+      //   clickedListItem.classList.add("completed");
+      //   checklistElement.innerHTML = `
+      // <div>
+      // The checklists are ${await Checklist.percentComplete()}% complete
+      // </div>
+      // `;
+      //   console.log(Checklist.checklistsArray[Checklist.checklistsArray.length - 1]);
+      //   if ((await Checklist.percentComplete()) >= 100) {
+      //     modalElement.style.display = "none";
+      //   }
       const index = parseInt(clickedListItem.id);
+      // renderIncompleteChecklist(index, clickedListItem);
+      renderIncompleteChecklist(clickedListItem);
       await Checklist.completeItem(index);
       clickedListItem.classList.add("completed");
-      checklistElement.innerHTML = `
-    <div>
-    The checklists are ${await Checklist.percentComplete()}% complete
-    </div>
-    `;
-      console.log(Checklist.checklistsArray[Checklist.checklistsArray.length - 1]);
+      closeRenderModalButton.style.display = "none";
       if ((await Checklist.percentComplete()) >= 100) {
         modalElement.style.display = "none";
       }
@@ -106,7 +133,7 @@ export function feature1Js() {
   });
 
   // Handle clicking on a button to render single checklist
-  renderChecklistButton.addEventListener("click", async () => {
+  async function renderChecklist() {
     // container.innerHTML = await Checklist.renderSingleChecklist();
     // if (checklistNameInput.options[checklistNameInput.selectedIndex].value === "test-checklist") container.innerHTML = checklist1Content;
     // if (checklistNameInput.options[checklistNameInput.selectedIndex].value === "bartender-open-shift") container.innerHTML = bartenderOpenChecklist;
@@ -117,6 +144,7 @@ export function feature1Js() {
 
     const selectedValue = checklistNameInput.options[checklistNameInput.selectedIndex].value;
     if (checklistContent.hasOwnProperty(selectedValue)) {
+      console.log(selectedValue);
       container.innerHTML = checklistContent[selectedValue];
     }
 
@@ -125,7 +153,9 @@ export function feature1Js() {
     checklistModalElement.style.display = "none";
     modalElement.style.display = "none";
     allChecklistsModal.style.display = "none";
-  });
+  }
+
+  renderChecklistButton.addEventListener("click", renderChecklist);
 
   // Handle clicking on the "Close" button to close the modals
   closeModalButton.addEventListener("click", () => {
