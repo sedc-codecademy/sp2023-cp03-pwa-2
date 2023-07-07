@@ -1,18 +1,16 @@
 import React from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import "./Header.css";
-import logo from "../../assets/images/Logo.png";
+import logo from "../../../src/assets/Images/Logo.png";
 import UserIcon from "../../Components/UserIcon";
 import { Link } from "react-router-dom";
 
 function Header(props) {
   const location = useLocation();
-  const isLoginOrHome = location.pathname === "/" || location.pathname === "/login";
+  const isLoginOrHome = location.pathname === "/" || location.pathname === "/login" || location.pathname.startsWith("/blog");
   const isDashboard = !isLoginOrHome;
 
-  const navbarData = isLoginOrHome
-    ? props.navbarLoginData
-    : props.navbarDashboardData;
+  const navbarData = isLoginOrHome ? props.navbarLoginData : props.navbarDashboardData;
 
   const userIcon = isDashboard ? <UserIcon /> : null;
 
